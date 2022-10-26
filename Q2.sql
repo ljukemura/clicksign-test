@@ -99,8 +99,7 @@ CREATE TABLE Team_Attributes_Modified as
 with TA as (
 	select 
         ,json_extract(replace(Team_Attributes,'NaN',0), '$.id') as team_attribute_id
-        ,json_extract(replace(Team_Attributes,'NaN',0), '$.id') as team_api_id
-        ,json_extract(replace(Team_Attributes,'NaN',0), '$.id') as team_fifa_api_id        
+        ,json_extract(replace(Team_Attributes,'NaN',0), '$.team_api_id') as team_api_id
         ,json_extract(replace(Team_Attributes,'NaN',0), '$.date') as date
         ,json_extract(replace(Team_Attributes,'NaN',0), '$.buildUpPlaySpeed') as buildUpPlaySpeed
         ,json_extract(replace(Team_Attributes,'NaN',0), '$.buildUpPlaySpeedClass') as buildUpPlaySpeedClass
@@ -123,7 +122,7 @@ with TA as (
         ,json_extract(replace(Team_Attributes,'NaN',0), '$.defenceTeamWidth') as defenceTeamWidth
         ,json_extract(replace(Team_Attributes,'NaN',0), '$.defenceTeamWidthClass') as defenceTeamWidthClass
         ,json_extract(replace(Team_Attributes,'NaN',0), '$.defenceDefenderLineClass') as defenceDefenderLineClass   	
-  	from Player_Attributes
+  	from Team_Attributes
 )
 select
     Team.'Unnamed: 0' as team_id 
